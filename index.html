@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareAlert</title>
+<meta name="description" content="CareAlert is a simple monitoring and notification system connecting patients, families, and care teams during urgent health moments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Hidden static form so Netlify's build-time form detection finds it -->
+<form name="carealert-contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <select name="reason"><option>General</option><option>Pilot / partnership</option><option>Join the team</option></select>
+  <textarea name="message"></textarea>
+  <input type="text" name="bot-field" />
+</form>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="pulse-dot"></span><span id="logo-text">CareAlert</span></a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#top">Home</a>
+      <div class="nav-item">
+        <button type="button" aria-expanded="false">About <span class="nav-caret">▾</span></button>
+        <div class="nav-dropdown">
+          <a href="#about" data-tab-target="mission">Our Mission</a>
+          <a href="#about" data-tab-target="team">Our Team</a>
+          <a href="#about" data-tab-target="partners">Partners</a>
+        </div>
+      </div>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#services">What We Offer</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" id="hero-eyebrow"></span>
+        <h1 id="hero-headline"></h1>
+        <p class="subhead" id="hero-subhead"></p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" id="hero-cta" href="#how-it-works">See how it works</a>
+          <a class="btn btn-secondary" id="hero-cta-2" href="#contact">Get involved</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" width="100%">
+          <polyline points="10,150 90,150 115,90 145,210 175,60 205,150 390,150"
+            fill="none" stroke="var(--color-accent)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="205" cy="150" r="8" fill="var(--color-accent)"/>
+          <circle cx="330" cy="70" r="34" fill="var(--color-primary)" opacity="0.08"/>
+          <circle cx="330" cy="70" r="34" fill="none" stroke="var(--color-primary)" stroke-width="2" opacity="0.5"/>
+          <path d="M318 70 l8 8 l16 -18" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <section class="stat-bar" style="padding:42px 0;">
+    <div class="wrap" id="stat-bar"></div>
+  </section>
+
+  <!-- ABOUT (tabs) -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-heading"></h2>
+        <p class="muted" id="about-intro"></p>
+      </div>
+
+      <div class="tabbar" role="tablist">
+        <button class="tab-btn active" data-tab="mission" role="tab">Our Mission</button>
+        <button class="tab-btn" data-tab="team" role="tab">Our Team</button>
+        <button class="tab-btn" data-tab="partners" role="tab">Partners</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="mission" id="panel-mission"></div>
+      <div class="tab-panel" data-panel="team">
+        <div class="team-grid" id="team-grid"></div>
+      </div>
+      <div class="tab-panel" data-panel="partners">
+        <p id="partners-body" class="muted"></p>
+        <div class="partner-list" id="partner-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" style="background:var(--color-surface); border-top:var(--border); border-bottom:var(--border);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="how-heading"></h2>
+        <p class="muted" id="how-intro"></p>
+      </div>
+      <div class="steps" id="steps"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="services-heading"></h2>
+        <p class="muted" id="services-intro"></p>
+      </div>
+      <div class="service-grid" id="service-grid"></div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="impact">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" id="impact-heading"></span>
+        <p id="impact-body"></p>
+      </div>
+      <blockquote>
+        <span id="impact-quote"></span>
+        <cite id="impact-attribution"></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="contact-heading"></h2>
+        <p class="muted" id="contact-body"></p>
+        <p class="muted">Or email us directly at <a id="contact-email-link" href="#" style="color:var(--color-primary); font-weight:600;"></a></p>
+      </div>
+      <div>
+        <div id="form-success"></div>
+        <form class="care-form" id="care-form" name="carealert-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="carealert-contact" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="f-reason">Reason for reaching out</label>
+            <select id="f-reason" name="reason">
+              <option>General question</option>
+              <option>Pilot / partnership</option>
+              <option>Join the team</option>
+              <option>Press</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-note">This form is hosted for free by Netlify \u2014 your message goes straight to CareAlert's inbox.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="logo"><span class="pulse-dot"></span><span id="footer-logo-text">CareAlert</span></a>
+      </div>
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#services">What We Offer</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="social-row" id="social-row"></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year"></span> <span id="footer-org-name">CareAlert</span>. All rights reserved.</span>
+      <span>Built as a Lehigh University Creative Inquiry project.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

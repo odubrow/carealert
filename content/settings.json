@@ -1,0 +1,17 @@
+{
+  "orgName": "CareAlert",
+  "logoText": "CareAlert",
+  "primaryColor": "#153E3B",
+  "accentColor": "#E2652B",
+  "backgroundColor": "#FAF8F4",
+  "surfaceColor": "#FFFFFF",
+  "textColor": "#1C2B27",
+  "mutedTextColor": "#4B5E5A",
+  "headingFont": "Fraunces",
+  "bodyFont": "Public Sans",
+  "baseFontSize": "17",
+  "socialLinkedIn": "https://www.linkedin.com/",
+  "socialInstagram": "https://www.instagram.com/",
+  "socialX": "https://twitter.com/",
+  "contactEmail": "hello@carealert.org"
+}

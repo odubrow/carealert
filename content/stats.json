@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "value": "24/7", "label": "Alerts monitored around the clock" },
+    { "value": "< 2 min", "label": "Average time from alert to caregiver notification" },
+    { "value": "3", "label": "Ways to reach a caregiver: text, call, or app" }
+  ]
+}

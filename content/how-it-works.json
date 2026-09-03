@@ -1,0 +1,10 @@
+{
+  "heading": "How it works",
+  "intro": "CareAlert is built around one idea: the person who notices a problem shouldn't have to chase down the person who can help.",
+  "steps": [
+    { "title": "Notice", "body": "A caregiver, family member, or device flags a change \u2014 a missed check-in, a symptom, a fall, anything that needs attention." },
+    { "title": "Send", "body": "One tap sends an alert with the details that matter: what happened, how urgent it is, and who's reporting it." },
+    { "title": "Reach", "body": "CareAlert notifies the right care team member immediately by text, call, or app, and keeps notifying until someone responds." },
+    { "title": "Respond", "body": "The care team acts, and the outcome is logged automatically, so nothing gets lost between shifts or visits." }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "heading": "What CareAlert offers",
+  "intro": "A small set of tools, built to work under pressure.",
+  "items": [
+    { "title": "Real-time alerts", "body": "Urgent updates reach a caregiver's phone within minutes, with clear priority levels so nothing urgent gets buried." },
+    { "title": "Care team routing", "body": "Alerts go to whoever is on call, automatically, so no single person is a bottleneck." },
+    { "title": "Shared care log", "body": "Every alert and response is recorded in one place, visible to the whole care team." },
+    { "title": "No app required", "body": "Caregivers can receive and respond to alerts by text or phone call, no download needed." }
+  ]
+}

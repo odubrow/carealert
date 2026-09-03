@@ -1,0 +1,24 @@
+{
+  "heading": "About CareAlert",
+  "intro": "We're a student-led team building a small, dependable tool for a big problem: the gap between when something goes wrong and when the right person finds out.",
+  "mission": {
+    "body": "CareAlert exists so that no family member, nurse, or caregiver has to find out about an urgent health change too late. We build simple alert tools that connect the person who notices a problem to the person who can act on it \u2014 in seconds, not hours. Our work is grounded in conversations with real patients, families, and clinicians, and every feature we ship has to earn its place by making someone's day-to-day care easier."
+  },
+  "team": {
+    "intro": "CareAlert is built by an interdisciplinary student team, working alongside clinicians and caregivers.",
+    "members": [
+      { "name": "Jordan Ellis", "role": "Team Lead, Computer Science \u201926", "bio": "Leads product and engineering for the CareAlert platform.", "photo": "" },
+      { "name": "Priya Nair", "role": "Clinical Liaison, Nursing \u201927", "bio": "Connects the team with caregivers and clinical partners.", "photo": "" },
+      { "name": "Sam Whitfield", "role": "Design Lead, Design \u201927", "bio": "Shapes how CareAlert looks, feels, and reads.", "photo": "" },
+      { "name": "Dr. Alex Rowan", "role": "Faculty Advisor", "bio": "Advises on clinical safety and research direction.", "photo": "" }
+    ]
+  },
+  "partners": {
+    "body": "We work with local care facilities, family caregiver networks, and clinical advisors who help us test CareAlert in real settings and keep it grounded in how care actually happens.",
+    "list": [
+      { "name": "Lehigh University Creative Inquiry", "description": "Academic home and research support for the CareAlert project." },
+      { "name": "Regional Caregiver Network", "description": "Pilot partner providing feedback from family caregivers." },
+      { "name": "Community Health Partners", "description": "Clinical advisory and pilot site support." }
+    ]
+  }
+}
