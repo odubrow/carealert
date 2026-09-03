@@ -1,1 +1,137 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/carealert-website
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "pages"
+    label: "Site Content"
+    files:
+
+      - name: "settings"
+        label: "Site Settings (colors, fonts, logo, socials)"
+        file: "content/settings.json"
+        fields:
+          - { label: "Organization Name", name: "orgName", widget: "string" }
+          - { label: "Logo Text", name: "logoText", widget: "string" }
+          - { label: "Primary Color", name: "primaryColor", widget: "color" }
+          - { label: "Accent Color", name: "accentColor", widget: "color" }
+          - { label: "Background Color", name: "backgroundColor", widget: "color" }
+          - { label: "Card / Surface Color", name: "surfaceColor", widget: "color" }
+          - { label: "Text Color", name: "textColor", widget: "color" }
+          - { label: "Muted Text Color", name: "mutedTextColor", widget: "color" }
+          - { label: "Heading Font (Google Font name)", name: "headingFont", widget: "string", hint: "Must be an exact Google Fonts name, e.g. Fraunces, Playfair Display, Merriweather" }
+          - { label: "Body Font (Google Font name)", name: "bodyFont", widget: "string", hint: "e.g. Public Sans, Inter, Source Sans 3" }
+          - { label: "Base Font Size (px)", name: "baseFontSize", widget: "number", value_type: "int", min: 14, max: 22 }
+          - { label: "LinkedIn URL", name: "socialLinkedIn", widget: "string", required: false }
+          - { label: "Instagram URL", name: "socialInstagram", widget: "string", required: false }
+          - { label: "X / Twitter URL", name: "socialX", widget: "string", required: false }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+
+      - name: "hero"
+        label: "Hero Section"
+        file: "content/hero.json"
+        fields:
+          - { label: "Eyebrow text", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "headline", widget: "text" }
+          - { label: "Subheading", name: "subhead", widget: "text" }
+          - { label: "Primary Button Text", name: "ctaText", widget: "string" }
+          - { label: "Primary Button Link", name: "ctaLink", widget: "string", hint: "e.g. #how-it-works" }
+          - { label: "Secondary Button Text", name: "secondaryCtaText", widget: "string" }
+          - { label: "Secondary Button Link", name: "secondaryCtaLink", widget: "string" }
+
+      - name: "stats"
+        label: "Stat Bar"
+        file: "content/stats.json"
+        fields:
+          - label: "Stats"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+      - name: "about"
+        label: "About Section (tabs)"
+        file: "content/about.json"
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string" }
+          - { label: "Section Intro", name: "intro", widget: "text" }
+          - label: "Tab 1 — Our Mission"
+            name: "mission"
+            widget: "object"
+            fields:
+              - { label: "Body", name: "body", widget: "text" }
+          - label: "Tab 2 — Our Team"
+            name: "team"
+            widget: "object"
+            fields:
+              - { label: "Intro", name: "intro", widget: "string" }
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Role", name: "role", widget: "string" }
+                  - { label: "Short Bio", name: "bio", widget: "text" }
+                  - { label: "Photo", name: "photo", widget: "image", required: false }
+          - label: "Tab 3 — Partners"
+            name: "partners"
+            widget: "object"
+            fields:
+              - { label: "Body", name: "body", widget: "text" }
+              - label: "Partner List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+      - name: "how"
+        label: "How It Works"
+        file: "content/how-it-works.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - label: "Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+      - name: "services"
+        label: "What We Offer"
+        file: "content/services.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+      - name: "impact"
+        label: "Impact"
+        file: "content/impact.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Body", name: "body", widget: "text" }
+          - { label: "Quote", name: "quote", widget: "text" }
+          - { label: "Quote Attribution", name: "quoteAttribution", widget: "string" }
+
+      - name: "contact"
+        label: "Contact Section"
+        file: "content/contact.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Body", name: "body", widget: "text" }
+          - { label: "Form Success Message", name: "formSuccessMessage", widget: "string" }
 
