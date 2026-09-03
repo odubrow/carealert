@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: odubrow/carealert-website
+  repo: odubrow/carealert
   branch: main
 
 media_folder: "images/uploads"
