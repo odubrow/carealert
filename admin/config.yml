@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/carealert-website
+  repo: odubrow/carealert-website
   branch: main
 
 media_folder: "images/uploads"
