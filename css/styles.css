@@ -6,8 +6,8 @@
   --color-surface: #FFFFFF;
   --color-text: #1C2B27;
   --color-muted: #4B5E5A;
-  --font-heading: 'Fraunces', Georgia, serif;
-  --font-body: 'Public Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-base: 17px;
 
   --container: 1120px;
@@ -90,6 +90,7 @@ p{ margin: 0 0 1em; }
   display:flex; align-items:center; gap:10px;
 }
 .logo .pulse-dot{ width:9px; height:9px; border-radius:50%; background: var(--color-accent); flex:none; }
+.logo-img{ height: 34px; width: auto; display:block; }
 
 nav.main-nav{ display:flex; align-items:center; gap: 6px; }
 nav.main-nav > a, nav.main-nav > .nav-item > button{
@@ -199,17 +200,48 @@ blockquote cite{ display:block; margin-top: 14px; font-family: var(--font-body);
 
 /* ===== Contact / form ===== */
 .contact-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; }
-form.care-form{ display:grid; gap: 16px; }
-.field label{ display:block; font-size: 0.9rem; font-weight:600; margin-bottom: 6px; color: var(--color-primary); }
-.field input, .field textarea, .field select{
-  width:100%; padding: 12px 14px; border-radius: 8px;
-  border: 1px solid rgba(21,62,59,0.25);
-  font-family: var(--font-body); font-size: 0.98rem;
-  background: var(--color-surface);
+
+.cf-form{ --cf-red: #D00A16; --cf-red-dark: #A80811; --cf-black: #111111; }
+.cf-field{ margin-bottom: 32px; }
+.cf-form label{ display:block; margin-bottom: 10px; font-size: 15px; font-weight: 400; color: #333; }
+.cf-required{ font-size: 13px; color: var(--cf-red); }
+.cf-form input, .cf-form textarea{
+  display:block; width:100%; border:0; border-bottom: 1px solid #ddd; border-radius:0;
+  outline:none; background:transparent; color:#111; font-family: inherit; font-weight: 300;
+  font-size: 16px; padding: 8px 0 10px; box-shadow:none; transition: border-color .15s ease;
 }
-.field textarea{ min-height: 120px; resize: vertical; }
-.form-note{ font-size: 0.85rem; color: var(--color-muted); margin-top: 4px; }
-#form-success{ display:none; background: rgba(21,62,59,0.08); border-radius: var(--radius); padding: 16px 18px; color: var(--color-primary); font-weight:600; }
+.cf-form input{ height: 36px; }
+.cf-form textarea{ min-height: 100px; resize: vertical; line-height:1.5; }
+.cf-form input:hover, .cf-form textarea:hover, .cf-form input:focus, .cf-form textarea:focus{
+  border-bottom: 1px solid var(--cf-red);
+}
+.cf-hint{ margin: 8px 0 0; font-size: 12px; color: #999; font-weight: 300; }
+.cf-choose-note{ margin: 0 0 10px; font-size: 13px; color: #999; font-weight: 300; }
+.cf-contact-type{ display:flex; gap: 26px; margin-bottom: 16px; }
+.cf-checkbox-option{ display:flex; align-items:center; gap: 9px; cursor:pointer; user-select:none; }
+.cf-checkbox-option input[type="radio"]{ position:absolute; opacity:0; width:0; height:0; }
+.cf-checkbox-box{
+  display:inline-block; width:16px; height:16px; flex-shrink:0; border:1px solid #ccc;
+  border-radius:50%; background:#fff; position:relative; transition: background .15s ease, border-color .15s ease;
+}
+.cf-checkbox-option input[type="radio"]:checked + .cf-checkbox-box{ border-color: var(--cf-red); }
+.cf-checkbox-option input[type="radio"]:checked + .cf-checkbox-box::after{
+  content:""; position:absolute; left:3px; top:3px; width:8px; height:8px; border-radius:50%; background: var(--cf-red);
+}
+.cf-checkbox-label{ font-size: 14px; font-weight: 300; color:#444; }
+.cf-required-note{ margin: -6px 0 24px; font-size: 12px; color:#999; font-weight:300; }
+.cf-submit{
+  display:block; width:100%; height:48px; border: 1px solid var(--cf-black); border-radius:0;
+  background:#fff; color: var(--cf-black); font-family: inherit; font-size: 13px; font-weight:500;
+  letter-spacing: 0.08em; cursor:pointer; transition: background .15s ease, color .15s ease;
+}
+.cf-submit:hover{ background: var(--cf-black); color:#fff; }
+.cf-submit:disabled{ opacity:.55; cursor:wait; }
+.cf-status{ min-height:22px; margin: 14px 0 0; font-size:14px; text-align:left; }
+.cf-status.cf-success{ color:#176b3a; }
+.cf-status.cf-error{ color: var(--cf-red-dark); }
+.cf-hp{ position:absolute !important; left:-9999px !important; width:1px !important; height:1px !important; overflow:hidden !important; }
+
 
 /* ===== Footer ===== */
 footer{ background: var(--color-primary); color: rgba(255,255,255,0.85); padding: 52px 0 28px; }
@@ -249,3 +281,4 @@ footer .footer-nav a:hover{ color:#fff; }
   .nav-toggle{ display:block; }
   .steps{ grid-template-columns: 1fr; }
 }
+
