@@ -47,6 +47,23 @@ function applyTheme(s){
   document.getElementById('logo-text').textContent = s.logoText || s.orgName;
   document.getElementById('footer-logo-text').textContent = s.logoText || s.orgName;
   document.getElementById('footer-org-name').textContent = s.orgName;
+
+  const logoEls = [
+    { img: document.getElementById('logo-img'), dot: document.getElementById('logo-dot'), text: document.getElementById('logo-text') },
+    { img: document.getElementById('footer-logo-img'), dot: document.getElementById('footer-logo-dot'), text: document.getElementById('footer-logo-text') }
+  ];
+  logoEls.forEach(({ img, dot, text }) => {
+    if(s.logo){
+      img.src = s.logo;
+      img.style.display = 'block';
+      dot.style.display = 'none';
+      text.style.display = 'none';
+    }else{
+      img.style.display = 'none';
+      dot.style.display = 'block';
+      text.style.display = 'inline';
+    }
+  });
   document.getElementById('contact-email-link').textContent = s.contactEmail;
   document.getElementById('contact-email-link').href = 'mailto:' + s.contactEmail;
 
@@ -62,7 +79,7 @@ function applyTheme(s){
   });
 
   // Also load fonts dynamically in case they differ from the defaults linked in <head>
-  if(s.headingFont && s.headingFont !== 'Fraunces' || s.bodyFont && s.bodyFont !== 'Public Sans'){
+  if((s.headingFont && s.headingFont !== 'Inter') || (s.bodyFont && s.bodyFont !== 'Inter')){
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(s.headingFont)}:wght@400;600;700&family=${encodeURIComponent(s.bodyFont)}:wght@400;600;700&display=swap`;
@@ -206,23 +223,51 @@ function setupNav(){
 }
 
 function setupForm(){
-  const form = document.getElementById('care-form');
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const button = document.getElementById('submitButton');
+  const status = document.getElementById('cf-statusline');
   const successBox = document.getElementById('form-success');
+  const contactTypeInput = document.getElementById('contactType');
+  const contactTypeRadios = document.querySelectorAll('.cf-contact-type-radio');
+
+  function updateContactType(){
+    const selected = document.querySelector('.cf-contact-type-radio:checked');
+    contactTypeInput.value = selected ? selected.value : '';
+  }
+  contactTypeRadios.forEach(radio => radio.addEventListener('change', updateContactType));
+  updateContactType();
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(form);
+    button.disabled = true;
+    button.textContent = 'SENDING...';
+    status.textContent = '';
+    status.className = 'cf-status';
+
     try{
-      await fetch('/', {
+      const response = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
-      successBox.textContent = window.__formSuccessMessage || 'Thanks! Your message was sent.';
-      successBox.style.display = 'block';
+      if(!response.ok) throw new Error('Submission failed');
+
       form.reset();
-      form.style.display = 'none';
+      updateContactType();
+      const message = window.__formSuccessMessage || 'Thank you \u2014 your message has been sent.';
+      status.textContent = message;
+      status.className = 'cf-status cf-success';
+      if(successBox){
+        successBox.textContent = message;
+        successBox.hidden = false;
+      }
     }catch(err){
-      alert('Something went wrong sending your message. Please try emailing us directly.');
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'cf-status cf-error';
+    }finally{
+      button.disabled = false;
+      button.textContent = 'SEND MESSAGE';
     }
   });
 }
@@ -250,3 +295,4 @@ async function init(){
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
